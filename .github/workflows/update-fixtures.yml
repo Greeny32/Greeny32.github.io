@@ -1,0 +1,39 @@
+name: Update Fixtures
+
+on:
+  schedule:
+    - cron: "0 0 * * *"   # daily
+  workflow_dispatch:       # manual run button
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run API script
+        env:
+          FTBL_KEY: ${{ secrets.FTBL_KEY }}
+        run: node api.js
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add data/fixtures.json
+
+          if git diff --staged --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Update fixtures"
+            git push
+          fi
