@@ -21,7 +21,7 @@ function date_right() {
 }
 
 function getFlag(country) {
-    const src = "flags/"
+    const src = "./flags/"
     return src + country + ".jpg";
 }
 
