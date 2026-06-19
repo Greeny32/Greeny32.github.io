@@ -55,7 +55,15 @@ function load_display(todayMatches) {
         let match = todayMatches[i];
         let ht = match.homeTeam.name;
         let at = match.awayTeam.name;
-        status = match.status;
+        let status = match.status;
+        var ko_time = new Date(match.utcDate).toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false
+        });
+        let g = match.group
+        let group = g.slice(-1);
+        console.log(group)
 
         // If finished display score otherwise time
         if (status == "FINISHED") {
@@ -64,13 +72,6 @@ function load_display(todayMatches) {
             var score = scr_ht + " - " + scr_at;
         }
         else {
-
-            var ko_time = new Date(match.utcDate).toLocaleTimeString([], {
-                hour: "2-digit",
-                minute: "2-digit",
-                hour12: false
-            });
-
             var score = ko_time;
         }
 
@@ -78,7 +79,12 @@ function load_display(todayMatches) {
         const div = document.createElement("div");
         div.classList.add("match");
         div.textContent = ht + " " + score + " " + at;
+        
+        const paragraph = document.createElement("p");
+        paragraph.textContent = "Group: "+String(group);
+        div.appendChild(paragraph);
         container.appendChild(div);
+
     }
 }
 
