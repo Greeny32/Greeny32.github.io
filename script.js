@@ -8,17 +8,21 @@ btn_left.addEventListener("click", date_left);
 btn_right.addEventListener("click", date_right);
 
 
-function date_left(){
+function date_left() {
     document.querySelector("main").innerHTML = '<center><div id="container", class="container"></div></center>';
-    date.setDate(date.getDate()-1);
+    date.setDate(date.getDate() - 1);
     main();
 }
 
-
-function date_right(){
+function date_right() {
     document.querySelector("main").innerHTML = '<center><div id="container", class="container"></div></center>';
-    date.setDate(date.getDate()+1);
+    date.setDate(date.getDate() + 1);
     main();
+}
+
+function getFlag(country) {
+    const src = "/flags/"
+    return src + country + ".jpg";
 }
 
 // UPDATE DATE
@@ -64,7 +68,6 @@ async function load() {
 }
 
 function load_display(todayMatches) {
-
     // PUT FIXTURES IN DOCUMENT
     const container = document.getElementById("container");
     const numItems = 4
@@ -93,15 +96,36 @@ function load_display(todayMatches) {
             var score = ko_time;
         }
 
-        // format page
+        // load images
+        // load images
+        var ht_img = document.createElement("img");
+        ht_img.src = getFlag(ht);
+
+        var at_img = document.createElement("img");
+        at_img.src = getFlag(at);
+
+        // text elements (must be nodes)
+        const text = document.createElement("span");
+        text.textContent = `${ht} ${score} ${at}`;
+
+        const groupText = document.createElement("p");
+        groupText.textContent = "Group: " + String(group);
+
+        // container div
         const div = document.createElement("div");
         div.classList.add("match");
-        div.textContent = ht + " " + score + " " + at;
-        
-        const paragraph = document.createElement("p");
-        paragraph.textContent = "Group: "+String(group);
-        div.appendChild(paragraph);
+
+        // append in order
+        div.appendChild(ht_img);
+        div.appendChild(text);
+        div.appendChild(at_img);
+        div.appendChild(groupText);
+
         container.appendChild(div);
+
+        // classes (fine here too)
+        ht_img.classList.add("flag");
+        at_img.classList.add("flag");
 
     }
 }

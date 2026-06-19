@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <header><center>
-        <h1>World Cup Fixtures</h1>
-    </center></header>
+    <header>
+        <center>
+            <h1>World Cup Fixtures</h1>
+        </center>
+    </header>
 
     <nav>
-        <button id="dayBack"><</button><p id="date">[TODAYS DATE]</p><button id="dayFwd">></button>
+        <button class="btn" id="dayBack"><</button>
+        <p id="date">[TODAYS DATE]</p>
+        <button class="btn" id="dayFwd">></button>
     </nav>
 
     <main>
-        <center><div id="container", class="container"></div></center>
+        <center>
+            <div id="container" class="container"></div>
+        </center>
     </main>
 </body>
+
 </html>
