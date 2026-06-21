@@ -19,10 +19,8 @@ jobs:
         with:
           node-version: 20
 
-      - name: Log execution time
-        run: |
-          echo "Workflow started at:"
-          date -u
+      - name: Save run time
+        run: date -u +"%Y-%m-%d %H:%M:%S UTC" > last-run.txt
 
       - name: Run API script
         env:
