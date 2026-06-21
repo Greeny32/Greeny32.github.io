@@ -2,7 +2,7 @@ name: Update Fixtures
 
 on:
   schedule:
-    - cron: '0 * * * *' 
+    - cron: '23 * * * *' 
   workflow_dispatch:       # manual run button
 
 permissions:
@@ -18,6 +18,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+
+      - name: Log execution time
+        run: |
+          echo "Workflow started at:"
+          date -u
 
       - name: Run API script
         env:
