@@ -22,6 +22,18 @@ jobs:
       - name: Save run time
         run: date -u +"%Y-%m-%d %H:%M:%S UTC" > last-run.txt
 
+      - name: Commit timestamp
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add last-run.txt
+
+          git commit -m "Add timestamp" || echo "No changes"
+
+          git pull --rebase origin main
+          git push origin main
+
       - name: Run API script
         env:
           FTBL_KEY: ${{ secrets.FTBL_KEY }}
