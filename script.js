@@ -1,16 +1,23 @@
-const date = new Date();
+var date = new Date();
 date.setDate(date.getDate());
 const btn_left = document.getElementById("dayBack");
 const btn_right = document.getElementById("dayFwd");
-const txt_date = document.getElementById("date");
+const btn_date = document.getElementById("date");
 
 btn_left.addEventListener("click", date_left);
 btn_right.addEventListener("click", date_right);
+btn_date.addEventListener("click", reset_date);
 
+function reset_date(){
+    document.querySelector("main").innerHTML = '<center><div id="container", class="container"></div></center>';
+    date = new Date();
+    main();
+}
 
 function date_left() {
     document.querySelector("main").innerHTML = '<center><div id="container", class="container"></div></center>';
     date.setDate(date.getDate() - 1);
+
     main();
 }
 
@@ -31,7 +38,7 @@ function updateDate() {
     let day = date.getDate();
     let month = txtmonths[date.getMonth()];
     let yr = date.getFullYear();
-    txt_date.innerHTML = day + ", " + month + " " + yr;
+    btn_date.innerHTML = day + ", " + month + " " + yr;
 }
 
 // LOAD FIXTURES FROM JSON
@@ -85,11 +92,13 @@ function load_display(todayMatches) {
         let g = match.group
         let group = g.slice(-1);
 
+        var txt_score = document.createElement("p");
         // If finished display score otherwise time
         if (status == "FINISHED") {
             var scr_ht = match.score.fullTime.home;
             var scr_at = match.score.fullTime.away;
             var score = scr_ht + " - " + scr_at;
+            txt_score.classList.add("result");
         }
         else {
             var score = ko_time;
@@ -99,15 +108,16 @@ function load_display(todayMatches) {
         // load images
         var ht_img = document.createElement("img");
         ht_img.src = getFlag(ht);
-
         var at_img = document.createElement("img");
         at_img.src = getFlag(at);
 
-        // text elements (must be nodes)
-        const text = document.createElement("span");
-        text.textContent = `${ht} ${score} ${at}`;
+        var txt_ht = document.createElement("p");
+        txt_ht.textContent = ht;
+        var txt_at = document.createElement("p");
+        txt_at.textContent = at;
 
-        const groupText = document.createElement("p");
+        txt_score.textContent = score;
+        var groupText = document.createElement("p");
         groupText.textContent = "Group " + String(group);
 
         // container div
@@ -116,7 +126,9 @@ function load_display(todayMatches) {
 
         // append in order
         div.appendChild(ht_img);
-        div.appendChild(text);
+        div.appendChild(txt_ht);
+        div.appendChild(txt_score);
+        div.appendChild(txt_at);
         div.appendChild(at_img);
         div.appendChild(groupText);
 
