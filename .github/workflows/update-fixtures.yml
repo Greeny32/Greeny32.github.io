@@ -20,7 +20,7 @@ jobs:
           node-version: 20
 
       - name: Save run time
-        run: date -u +"%Y-%m-%d %H:%M:%S UTC" > last-run.txt
+        run: date -u +"%Y-%m-%dT%H:%M:%S"Z > last-run.txt
 
       - name: Commit timestamp
         run: |
