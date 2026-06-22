@@ -35,3 +35,7 @@ nav {
     color: inherit;
     text-decoration: inherit;
 }
+
+.group {
+    background-color: red;
+}

@@ -7,7 +7,7 @@ console.log("KEY VALUE:", process.env.FTBL_KEY);
 async function update(){
     // Call api
     const response = await fetch(
-        "https://api.football-data.org/v4/competitions/WC/matches",
+        "https://api.football-data.org/v4/competitions/WC",
         {
             headers: {
                 "X-Auth-Token": process.env.FTBL_KEY
