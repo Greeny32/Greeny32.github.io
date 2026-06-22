@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@keyframes load {
+    from {
+        color: transparent;
+    }
+
+    to {
+        color: white;
+    }
+}
+
+body {
+    background-image: linear-gradient(150deg, rgb(4, 0, 26), rgb(7, 0, 32));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: "Inter", sans-serif;
+    color: white;
+}
+
+header, nav {
+    animation: load;
+    animation-duration: 0.3s;
+}
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+nav {
+    padding-bottom: 20px;
+}
+
+/* Remove styling from the hyperlink */
+.index {
+    color: inherit;
+    text-decoration: inherit;
+}

@@ -128,12 +128,34 @@ nav {
     border-width: 1px;
 }
 
-.refresh {
+
+@keyframes refresh_in{
+    from {color: transparent;}
+    to {color: white;}
+}
+@keyframes refresh_out{
+    from {color: white;}
+    to {color: transparent;}
+}
+
+.refresh_text {
     font-size: 8px;
     display: flex;
+    color: transparent;
     justify-content: center;
     text-align: center;
     padding: 20px;
+}
+.refresh_in {
+    animation: refresh_in;
+    animation-duration: 0.3s;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+}
+.refresh_out {
+    animation: refresh_out;
+    animation-duration: 1s;
+    animation-fill-mode: backwards;
 }
 
 @media (min-width: 740px) {
@@ -149,10 +171,6 @@ nav {
     .btn {
         width: 40px;
         height: 40px;
-    }
-
-    .container p {
-        font-size: 20px;
     }
 
     .match {

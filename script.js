@@ -158,19 +158,27 @@ async function refresh() {
         hour12: false
     });
 
-
     txt_refresh.textContent = "Refreshed: "+formatter.format(refresh_time);
 
+    // Restart animation
+    
 }
 
 async function main() {
+    // remove refresh text
+    txt_refresh.classList.remove("refresh_in");
+    txt_refresh.classList.add("refresh_remove");
+
     updateDate();
-    refresh()
+    refresh(); 
     const todayMatches = await load();
-
-
-
     await load_display(todayMatches);
+
+    // add refresh text
+    txt_refresh.classList.remove("refresh_remove");
+    void txt_refresh.offsetWidth; // restart animation reliably
+    txt_refresh.classList.add("refresh_in");
+
 }
 
 
