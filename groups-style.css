@@ -19,8 +19,10 @@ body {
 }
 
 header, nav {
+    color: transparent;
     animation: load;
     animation-duration: 0.3s;
+    animation-fill-mode: forwards;
 }
 h1 {
     font-size: 28px;
@@ -35,7 +37,27 @@ nav {
     color: inherit;
     text-decoration: inherit;
 }
+.container {
+    display: flex;
+    flex-direction: column;
+}
 
-.group {
-    background-color: red;
+.box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.group_box {
+    text-align: left;
+    padding-bottom: 6px;
+    border-radius: 10px;
+    font-size: 13px;
+    padding: 6px;
+    background-image: linear-gradient(140deg, rgb(7, 0, 37), rgb(8, 7, 48));
+    border: 1px solid rgb(94, 94, 94);
+}
+
+.group_name {
+    color: gold;
 }

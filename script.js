@@ -47,7 +47,7 @@ async function load() {
     const response = await fetch("data/fixtures.json");
     const data = await response.json();
 
-    const matches = data.matches;
+    const matches = data.matches.matches;
 
     // Start of "today" at 07:00 UTC
     const start = new Date(Date.UTC(
