@@ -73,7 +73,6 @@ async function load() {
         return matchTime >= start && matchTime < end;
     });
 
-    console.log(todayMatches);
     return todayMatches;
 }
 
@@ -85,14 +84,22 @@ function load_display(todayMatches) {
         // Get fixtures
         let ht = match.homeTeam.shortName;
         let at = match.awayTeam.shortName;
+
+        // check if team is null
+        if (ht == null){
+            ht = "None";
+        }
+        if (at == null){
+            at = "None";
+        }
+
         let status = match.status;
         var ko_time = new Date(match.utcDate).toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
             hour12: false
         });
-        let g = match.group
-        let group = g.slice(-1);
+
 
         var txt_score = document.createElement("p");
         // If finished display score otherwise time
@@ -106,7 +113,27 @@ function load_display(todayMatches) {
             var score = ko_time;
         }
 
-        // load images
+        var groupText = document.createElement("p");
+        
+        if (match.stage == "GROUP"){
+            let g = match.group
+            var group = g.slice(-1);
+            groupText.textContent = "Group " + String(group);
+           
+        } else {
+            // create a lookup table to format output
+            const labels = {
+                LAST_32: "Round of 32",
+                LAST_16: "Round of 16",
+                QUARTER_FINALS: "Quarter Final",
+                SEMI_FINALS: "Semi Final",
+                THIRD_PLACE: "Third Place Playoff",
+                FINAL: "Final"
+            }
+
+            groupText.textContent = labels[match.stage] || match.stage;
+        }
+        
         // load images
         var ht_img = document.createElement("img");
         ht_img.src = getFlag(ht);
@@ -119,8 +146,7 @@ function load_display(todayMatches) {
         txt_at.textContent = at;
 
         txt_score.textContent = score;
-        var groupText = document.createElement("p");
-        groupText.textContent = "Group " + String(group);
+        
 
         // container div
         const div = document.createElement("div");
