@@ -1030,7 +1030,7 @@
       "count": 104,
       "first": "2026-06-11",
       "last": "2026-07-19",
-      "played": 80
+      "played": 81
     },
     "competition": {
       "id": 2000,
@@ -6093,7 +6093,7 @@
         "matchday": null,
         "stage": "LAST_32",
         "group": null,
-        "lastUpdated": "2026-07-01T08:25:01Z",
+        "lastUpdated": "2026-07-01T08:25:00Z",
         "homeTeam": {
           "id": 1935,
           "name": "Ivory Coast",
@@ -6353,11 +6353,11 @@
         },
         "id": 537422,
         "utcDate": "2026-07-01T20:00:00Z",
-        "status": "PAUSED",
+        "status": "FINISHED",
         "matchday": null,
         "stage": "LAST_32",
         "group": null,
-        "lastUpdated": "2026-07-01T22:43:56Z",
+        "lastUpdated": "2026-07-01T22:54:56Z",
         "homeTeam": {
           "id": 805,
           "name": "Belgium",
@@ -6373,10 +6373,10 @@
           "crest": "https://crests.football-data.org/senegal.svg"
         },
         "score": {
-          "winner": "DRAW",
-          "duration": "EXTRA_TIME",
+          "winner": "HOME_TEAM",
+          "duration": "REGULAR",
           "fullTime": {
-            "home": 2,
+            "home": 3,
             "away": 2
           },
           "halfTime": {
@@ -6388,7 +6388,7 @@
             "away": null
           },
           "extraTime": {
-            "home": 0,
+            "home": 1,
             "away": 0
           }
         },
@@ -6427,11 +6427,11 @@
         },
         "id": 537421,
         "utcDate": "2026-07-02T00:00:00Z",
-        "status": "TIMED",
+        "status": "IN_PLAY",
         "matchday": null,
         "stage": "LAST_32",
         "group": null,
-        "lastUpdated": "2026-06-30T15:20:13Z",
+        "lastUpdated": "2026-07-02T01:27:45Z",
         "homeTeam": {
           "id": 771,
           "name": "United States",
@@ -6447,15 +6447,15 @@
           "crest": "https://crests.football-data.org/bosnia.svg"
         },
         "score": {
-          "winner": null,
+          "winner": "HOME_TEAM",
           "duration": "REGULAR",
           "fullTime": {
-            "home": null,
-            "away": null
+            "home": 1,
+            "away": 0
           },
           "halfTime": {
-            "home": null,
-            "away": null
+            "home": 1,
+            "away": 0
           }
         },
         "odds": {
